@@ -1,13 +1,5 @@
 import sys
 
-try:
-    # 'input.txt' 파일을 읽기 모드('r')로 열고
-    # sys.stdin을 이 파일 핸들로 대체합니다.
-    sys.stdin = open('input.txt', 'r')
-except FileNotFoundError:
-    # input.txt 파일이 없을 경우 예외 처리
-    pass
-
 input = sys.stdin.readline
 
 N = int(input())
