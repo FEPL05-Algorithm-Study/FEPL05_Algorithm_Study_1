@@ -7,8 +7,8 @@ while i<n:
     answer += 1
 
     # 숫자에 l이 포함되면 건너뛰기
-    while str(l) in str(answer):
-        answer += 1
-    i += 1
+    if not str(l) in str(answer):
+        i += 1
+    
 
 print(answer)
