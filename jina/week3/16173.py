@@ -28,7 +28,6 @@ def bfs(x, y):
         for move in range(2): # 두 방향으로 시도
             nx = x + dx[move]*step
             ny = y + dy[move]*step
-            print('nx, ny: ', nx, ny)
             # 주어진 범위 벗어나면 무시
             if nx < 0 or nx >= N or ny < 0 or ny >= N:
                 continue
