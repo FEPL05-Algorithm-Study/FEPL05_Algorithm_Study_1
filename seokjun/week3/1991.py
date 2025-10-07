@@ -10,40 +10,33 @@ for _ in range(n):
     child[node].append(left_child)
     child[node].append(right_child)
 
-answer = ['']*3
 
 # 전위 순회
 def preorder(cur):
-    left_child, right_child = child[cur]
-
-    answer[0] += cur
-    if left_child != '.':
+    if cur != '.':
+        left_child, right_child = child[cur]
+        print(cur,end='')
         preorder(left_child)
-    if right_child != '.':
         preorder(right_child)
 
 # 중위 순회
 def inorder(cur):
-    left_child, right_child = child[cur]
-
-    if left_child != '.':
+    if cur != '.':
+        left_child, right_child = child[cur]
         inorder(left_child)
-    answer[1] += cur
-    if right_child != '.':
+        print(cur,end='')
         inorder(right_child)
 
 # 후위 순회
 def postorder(cur):
-    left_child, right_child = child[cur]
-
-    if left_child != '.':
+    if cur != '.':
+        left_child, right_child = child[cur]
         postorder(left_child)
-    if right_child != '.':
         postorder(right_child)
-    answer[2] += cur
+        print(cur,end='')
 
 preorder('A')
+print()
 inorder('A')
+print()
 postorder('A')
-
-print('\n'.join(answer))
