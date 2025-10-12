@@ -3,7 +3,7 @@ input = sys.stdin.readline
 
 n, m, k = map(int, input().split())
 arr = [int(input()) for _ in range(n)]
-query = [list(map(int, input().split())) for _ in range(m+k)]
+queries = [list(map(int, input().split())) for _ in range(m+k)]
 
 # 세그먼트 트리의 리프노드의 개수는 n이상의 2의 제곱수
 # size 는 n 이상의 2^k
@@ -32,7 +32,7 @@ def update(b,c):
         b //= 2 
 
 # left,right사이의 합을구함
-def get_sum(b,c):
+def query(b,c):
     result = 0
     left = b + size
     right = c + size
@@ -57,10 +57,10 @@ def get_sum(b,c):
 
 answer = []
 
-for a,b,c in query:
+for a,b,c in queries:
     if a == 1:
         update(b-1,c)
     elif a == 2:
-        answer.append(get_sum(b-1,c-1))
+        answer.append(query(b-1,c-1))
 
 print('\n'.join(map(str,answer)))
